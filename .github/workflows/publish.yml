@@ -3,9 +3,9 @@ name: Docker Image CI
 on:
   workflow_dispatch:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 env:
   GITHUB_WORKFLOW: dati-semantic-webvowl
   REGISTRY: ghcr.io
@@ -127,7 +127,7 @@ jobs:
           echo "##[set-output name=imageName;]${IMAGE}:${TAG}"
       - uses: convictional/trigger-workflow-and-wait@v1.3.0
         with:
-          owner: teamdigitale
+          owner: istat
           repo: dati-semantic-kubernetes
           github_token: ${{ secrets.DATI_SEMANTIC_KUBERNETES_DEPLOY }}
           workflow_file_name: update-config.yaml
